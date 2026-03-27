@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Eiendom Nyheter",
+  title: "Eiendomsnyheter",
   description: "Norske eiendomsnyheter fra eiendomswatch.no, estatenyheter.no, E24, DN og Finansavisen",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
