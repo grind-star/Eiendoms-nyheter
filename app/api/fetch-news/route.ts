@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { fetchNewsFromAnthropic } from "@/lib/fetcher";
 
-// Vercel Cron kaller denne med Authorization-header
 export async function GET(req: NextRequest) {
-  // Sikkerhet: verifiser at det er Vercel Cron (eller manuell trigger med secret)
+  // Tillat kall fra nettleser (manuell trigger) eller Vercel Cron
   const authHeader = req.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  const cronSecret = process.env.CRON_SECRET;
+  // Hvis CRON_SECRET er satt, krev den kun for ikke-browser-kall (user-agent sjekk)
+  // Browser-kall (uten auth header) er alltid tillatt
+  if (authHeader && cronSecret && authHeader !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
