@@ -38,7 +38,7 @@ JSON-format:
   }
 ]
 
-Hent minst 10 artikler totalt.`;
+Hent minst 20 artikler totalt. Søk grundig gjennom hver nettside og hent så mange relevante saker som mulig.`;
 
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -49,7 +49,7 @@ Hent minst 10 artikler totalt.`;
     },
     body: JSON.stringify({
       model: "claude-sonnet-4-20250514",
-      max_tokens: 4000,
+      max_tokens: 8000,
       system: systemPrompt,
       tools: [{ type: "web_search_20250305", name: "web_search" }],
       messages: [
