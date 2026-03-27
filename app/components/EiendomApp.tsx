@@ -184,7 +184,7 @@ export default function EiendomApp() {
                     margin: 0, fontSize: 32, fontWeight: 800, letterSpacing: "-1.2px",
                     background: "linear-gradient(135deg, #f0fff0 0%, #4ade80 100%)",
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1,
-                  }}>Eiendom</h1>
+                  }}>Eiendomsnyheter</h1>
                   <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", fontFamily: "system-ui", marginTop: 4 }}>
                     {refreshing
                       ? <span style={{ color: "#4ade80" }}>⟳ Henter ferske nyheter...</span>
