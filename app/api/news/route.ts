@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     .from("articles")
     .select("*")
     .order("fetched_at", { ascending: false })
-    .limit(40);
+    .limit(100);
 
   if (category && category !== "Alt") {
     query = query.eq("category", category);
